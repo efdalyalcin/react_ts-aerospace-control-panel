@@ -1,0 +1,51 @@
+@import '@/styles/_utils.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Roboto', 'Maison Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+button {
+  margin: 0;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
+
+button {
+  border: unset;
+  padding: unset;
+  background-color: unset;
+  font-family: unset;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+input {
+  padding: 0;
+  border: 1px solid $c-gray400;
+  border-radius: 8px;
+}
+
+input:focus {
+  border: 1px solid $c-primary;
+}

@@ -1,0 +1,14 @@
+%minMaxWidthPage {
+  max-width: $maxWidth;
+  min-width: $minWidth;
+}
+
+%center {
+  margin: 0 auto;
+}
+
+%borderShadow {
+  border: 1px solid $c-border;
+  border-radius: $containerBorderRadius;
+  box-shadow: 0px 4px 4px $c-gray400;
+}

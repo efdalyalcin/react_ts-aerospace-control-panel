@@ -1,0 +1,64 @@
+// width
+$maxWidth: 1360px;
+$tabletWidth: 1068px;
+$mobileWidth: 734px;
+$extraSmallWidth: 440px;
+$minWidth: 360px;
+
+// color
+$c-dark: #1c1c1c;
+$c-gray600: #505050;
+$c-gray500: #8b96a5;
+$c-gray400: #bdc4cd;
+$c-gray300: #dee2e7;
+$c-gray200: #eff2f4;
+$c-gray100: #f7fafc;
+$c-blue100: #e3f0ff;
+$c-primary: #0d6efd;
+$c-green200: #c4ffcb;
+$c-green: #00b517;
+$c-orange200: #ffe6bf;
+$c-orange: #ff9017;
+$c-red: #fa3434;
+$c-border: #e0e0e0;
+$c-white: #fff;
+
+// transition
+$transitionTime: 0.5s;
+
+// buttons
+$buttonSize: 32px;
+$buttonBorderRadius: 8px;
+
+// border radius
+$containerBorderRadius: 8px;
+$cardBorderRadius: 8px;
+
+// font-size
+$fontH2: 32px;
+$fontLarge: 20px;
+$fontRegular: 16px;
+$fontSmall: 12px;
+$lineHeight: 1.25;
+
+// card dimensions
+$productCardHeight: 356px;
+$productCardWidth: 220px;
+
+// card gaps
+$cardGap: 8px;
+$searchPageCardGap: 16px;
+
+// paddings
+$pageSidePaddingL: 40px;
+$pageSidePaddingM: 24px;
+$pageSidePaddingS: 12px;
+$componentInnerPaddingR: 20px;
+$componentInnerPaddingS: 8px;
+
+$searchedCardPadding: 20px;
+$searchedCardPaddingS: 8px;
+
+// sizes
+$catalogImageSizeL: 82px;
+$catalogImageSizeM: 64px;
