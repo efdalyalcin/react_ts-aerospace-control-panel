@@ -26,13 +26,8 @@ $c-white: #fff;
 // transition
 $transitionTime: 0.5s;
 
-// buttons
-$buttonSize: 32px;
-$buttonBorderRadius: 8px;
-
 // border radius
 $containerBorderRadius: 8px;
-$cardBorderRadius: 8px;
 
 // font-size
 $fontH2: 32px;
@@ -41,14 +36,6 @@ $fontRegular: 16px;
 $fontSmall: 12px;
 $lineHeight: 1.25;
 
-// card dimensions
-$productCardHeight: 356px;
-$productCardWidth: 220px;
-
-// card gaps
-$cardGap: 8px;
-$searchPageCardGap: 16px;
-
 // paddings
 $pageSidePaddingL: 40px;
 $pageSidePaddingM: 24px;
@@ -56,9 +43,6 @@ $pageSidePaddingS: 12px;
 $componentInnerPaddingR: 20px;
 $componentInnerPaddingS: 8px;
 
-$searchedCardPadding: 20px;
-$searchedCardPaddingS: 8px;
-
-// sizes
-$catalogImageSizeL: 82px;
-$catalogImageSizeM: 64px;
+// gauge dimensions
+$gaugeWidth: 200px;
+$gaugeInfoPlacement: 16px;

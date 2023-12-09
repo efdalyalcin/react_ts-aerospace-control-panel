@@ -1,0 +1,11 @@
+@import '@/styles/_utils.scss';
+
+.ErrorPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $c-gray400;
+  height: 100vh;
+}

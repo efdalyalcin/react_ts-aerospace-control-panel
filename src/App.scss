@@ -3,4 +3,6 @@
 .App {
   @extend %minMaxWidthPage;
   @extend %center;
+
+  position: relative;
 }
