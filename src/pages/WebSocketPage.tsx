@@ -1,5 +1,11 @@
+import NavBar from '@/components/NavBar/NavBar';
 import React from 'react';
 
 export default function WebSocketPage() {
-  return <div>WebSocketPage</div>;
+  return (
+    <>
+      <NavBar />
+      WebSocketPage
+    </>
+  );
 }

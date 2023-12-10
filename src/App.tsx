@@ -2,7 +2,7 @@ import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 
 import WebSocketPage from '@/pages/WebSocketPage';
-import Home from '@/pages/Home';
+import Home from '@/pages/Home/Home';
 import ErrorPage from '@/pages/ErrorPage/ErrorPage';
 
 function App() {

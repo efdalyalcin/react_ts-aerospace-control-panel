@@ -1,0 +1,132 @@
+@import '@/styles/_utils.scss';
+
+.AltitudeChange {
+  position: relative;
+  justify-self: center;
+
+  width: 100px;
+  height: $altitudeHight;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__info {
+    position: absolute;
+    bottom: $gaugeInfoPlacement;
+  }
+
+  &__arrow {
+    width: $arrowSize;
+    height: $arrowSize;
+    border: calc($arrowSize/2) solid;
+    border-color: black transparent transparent black;
+    transform: rotate(45deg);
+  }
+
+  &__arrow--down {
+    transform: rotate(-135deg);
+  }
+
+  &__arrowSlidingUp {
+    position: absolute;
+    -webkit-animation: slideUp 2s linear infinite;
+    animation: slideUp 2s linear infinite;
+  }
+
+  &__arrowSlidingDown {
+    position: absolute;
+    -webkit-animation: slideDown 2s linear infinite;
+    animation: slideDown 2s linear infinite;
+  }
+
+  &__delay1 {
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+  }
+  &__delay2 {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+  }
+  &__delay3 {
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+  }
+}
+
+$translate0: calc($altitudeHight / 4);
+$translate20: calc($altitudeHight * 3 / 20);
+
+@-webkit-keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY($translate0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY($translate20);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-$translate20);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-$translate0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY($translate0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY($translate20);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-$translate20);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-$translate0);
+  }
+}
+@-webkit-keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-$translate0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-$translate20);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY($translate20);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY($translate0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-$translate0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-$translate20);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY($translate20);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY($translate0);
+  }
+}

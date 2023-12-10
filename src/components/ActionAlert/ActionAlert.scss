@@ -1,0 +1,45 @@
+@import '@/styles/_utils.scss';
+
+.ActionAlert {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 160px;
+
+  padding: 4px;
+
+  border-radius: $containerBorderRadius;
+  border: 2px solid $c-red;
+
+  background-color: $c-gray200;
+
+  text-align: center;
+  font-size: $fontRegular;
+  color: $c-red;
+
+  animation: blinker 1s linear infinite;
+
+  &__close {
+    position: absolute;
+    top: 0;
+    left: -20px;
+
+    width: 16px;
+    height: 16px;
+
+    border: 1px solid $c-gray400;
+    border-radius: 50%;
+    color: $c-gray400;
+
+    font-size: 12px;
+
+    opacity: 1;
+  }
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

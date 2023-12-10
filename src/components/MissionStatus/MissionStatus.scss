@@ -1,0 +1,8 @@
+@import '@/styles/_utils.scss';
+
+.MissionStatus {
+  text-align: center;
+  line-height: $lineHeight;
+  font-size: $fontRegular;
+  color: $c-dark;
+}

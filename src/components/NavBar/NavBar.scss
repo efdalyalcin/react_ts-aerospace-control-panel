@@ -1,0 +1,35 @@
+@import '@/styles/_utils.scss';
+
+.NavBar {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  padding: $componentInnerPaddingS $componentInnerPaddingR;
+
+  background-color: $c-gray100;
+
+  &__item {
+    padding: $componentInnerPaddingS $componentInnerPaddingR;
+
+    border-radius: $containerBorderRadius;
+
+    background-color: $c-primary;
+    color: $c-gray200;
+
+    transition: background-color $transitionTime, color $transitionTime;
+
+    @include mediaMaxWidth($mobileWidth) {
+      padding-inline: $componentInnerPaddingS;
+    }
+
+    &--active {
+      background-color: $c-blue100;
+      color: $c-dark;
+    }
+  }
+}

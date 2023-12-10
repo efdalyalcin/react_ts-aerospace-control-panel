@@ -1,12 +1,12 @@
 import { GaugeTitleT } from '@/types/GaugeTitle.type';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './GaugeGraph.scss';
 
 Chart.register(ArcElement, Tooltip, Legend);
 
-// chart is a ChartJS object, which I couldn't find the type so I had to use any type
+// chart is a ChartJS object, which I couldn't import the type so I used any although it is a bad practice
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getGradient = (chart: any, value: number) => {
   const {
@@ -26,23 +26,11 @@ const getGradient = (chart: any, value: number) => {
   return gradientSegment;
 };
 
-type Props = {
-  title: GaugeTitleT;
-  value: number;
-  units?: string;
-  limitValue?: number;
-};
-
-export default function GaugeGraph({
-  title,
-  value,
-  units,
-  limitValue = value,
-}: Props) {
+const createData = (value: number, limitValue: number) => {
   const calculatedPercentToLimit =
     value === limitValue ? value : limitValue - value;
 
-  const [data] = useState({
+  return {
     datasets: [
       {
         data: [value, calculatedPercentToLimit],
@@ -59,18 +47,36 @@ export default function GaugeGraph({
         borderWidth: 0,
         circumference: 180,
         rotation: value >= 0 ? 270 : 90,
-        animateRotate: true,
         hoverOffset: 2,
-        offset: 1,
       },
     ],
-  });
+  };
+};
+
+type Props = {
+  title: GaugeTitleT;
+  value: number;
+  units?: string;
+  limitValue?: number;
+};
+
+export default function GaugeGraph({
+  title,
+  value,
+  units,
+  limitValue = value,
+}: Props) {
+  const [data, setData] = useState(createData(value, limitValue));
+
+  useEffect(() => {
+    setData(createData(value, limitValue));
+  }, [value, limitValue]);
 
   return (
     <div className="GaugeGraph">
       <h3 className="GaugeGraph__title">{title}</h3>
       <div className="GaugeGraph__graph">
-        <Doughnut data={data} options={{}} />
+        <Doughnut data={data} />
       </div>
       <p className="GaugeGraph__info">{`${value} ${units ? units : ''}`}</p>
     </div>
