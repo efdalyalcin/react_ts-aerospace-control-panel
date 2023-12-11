@@ -16,6 +16,9 @@ const mockFetch = vi.fn(() =>
   })
 );
 
+// eslint-disable-next-line no-var, @typescript-eslint/no-explicit-any
+declare var global: any;
+
 describe('getSpectrumStatus', () => {
   it('should return a Promise that resolves with SpectrumStatusT object', () => {
     // Replace the global fetch function with the mock
