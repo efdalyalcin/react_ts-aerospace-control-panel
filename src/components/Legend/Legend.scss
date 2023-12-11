@@ -1,0 +1,18 @@
+@import '@/styles/_utils.scss';
+
+.Legend {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 80px;
+  padding: 2px;
+
+  border-top: 1px solid $c-gray400;
+  border-left: 1px solid $c-gray400;
+
+  opacity: 0.5;
+}

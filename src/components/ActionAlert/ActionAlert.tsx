@@ -1,35 +1,64 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './ActionAlert.scss';
+import { createPortal } from 'react-dom';
+import ModalContent from '@/components/ModalContent/ModalContent';
+import { getActOnSpectrum } from '@/services/getActOnSpectrum';
 
 type Props = {
   isRequired: boolean;
 };
 
 const ActionAlert = React.memo(({ isRequired }: Props) => {
-  const [isClosed, setIsClosed] = useState(false);
+  const [isCloseClicked, setIsCloseClicked] = useState(false);
+  const [showModal, setShowModal] = useState(isRequired);
+  const [timesPostponed, setTimesPostponed] = useState(0);
 
+  // this is for the close button without action, it brings back the modal after 3s
+  // opens directly in the first error
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsClosed(false);
-    }, 3000);
+    if (timesPostponed === 0 && isRequired) {
+      setShowModal(true);
+    }
 
-    return () => clearTimeout(timeout);
-  }, [isClosed]);
+    if (isRequired && isCloseClicked) {
+      const timeout = setTimeout(() => {
+        setIsCloseClicked(false);
+        setShowModal(true);
+        // since it is an async operation previous state is important
+        setTimesPostponed((prev) => prev + 1);
+      }, 3000);
 
-  if (!isRequired) return null;
+      return () => clearTimeout(timeout);
+    }
+    // timesPostponed only triggers with the closeClick so it is not in the dependency
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isCloseClicked, isRequired]);
+
+  const postponeWarning = useCallback(() => {
+    if (timesPostponed <= 5) {
+      setIsCloseClicked(true);
+      setShowModal(false);
+    }
+  }, [timesPostponed]);
+
+  const closeModalWithAction = useCallback(async () => {
+    const postRequest = await getActOnSpectrum();
+    console.log('Action taken ===> ', postRequest);
+    setShowModal(false);
+    setTimesPostponed(0);
+  }, []);
+
   return (
     <>
-      {isClosed ? null : (
-        <div className="ActionAlert">
-          <button
-            className="ActionAlert__close"
-            onClick={() => setIsClosed(true)}
-          >
-            x
-          </button>
-          <p>Immediate Action Required!!!</p>
-        </div>
-      )}
+      {showModal
+        ? createPortal(
+            <ModalContent
+              onPostpone={postponeWarning}
+              closeModalWithAction={closeModalWithAction}
+            />,
+            document.getElementById('modal')!
+          )
+        : null}
     </>
   );
 });

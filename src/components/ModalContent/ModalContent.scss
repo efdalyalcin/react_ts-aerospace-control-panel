@@ -1,0 +1,81 @@
+@import '@/styles/_utils.scss';
+
+.ModalContent {
+  position: absolute;
+  top: 10vh;
+  left: 10vh;
+  z-index: 99;
+
+  width: 80vw;
+  height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: $componentInnerPaddingR;
+
+  border-radius: $containerBorderRadius;
+  border: 2px solid $c-red;
+
+  background-color: $c-gray200;
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 3px 6px $c-red;
+
+  text-align: center;
+  font-size: $fontRegular;
+  color: $c-red;
+
+  &__text {
+    font-size: $fontLarge;
+    font-weight: bold;
+
+    animation: blinker 1s infinite;
+  }
+
+  &__buttons {
+    margin-top: $separationGap;
+
+    display: flex;
+    justify-content: center;
+    gap: $gaugesGap;
+  }
+
+  &__button {
+    padding: $componentInnerPaddingS $componentInnerPaddingR;
+
+    border: 1px solid $c-gray200;
+    border-radius: $containerBorderRadius;
+
+    color: $c-gray200;
+  }
+
+  &__postpone-button {
+    background-color: $c-red;
+  }
+  &__action-button {
+    background-color: $c-green;
+  }
+
+  &__close {
+    position: absolute;
+    right: $separationGap;
+    top: $separationGap;
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid $c-gray600;
+    border-radius: 50%;
+    color: $c-gray600;
+
+    font-size: 12px;
+
+    opacity: 1;
+  }
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

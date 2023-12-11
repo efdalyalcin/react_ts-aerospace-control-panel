@@ -1,0 +1,21 @@
+@import '@/styles/_utils.scss';
+
+.GaugesLayout {
+  margin-top: $separationGap;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  align-items: center;
+  justify-content: center;
+  gap: $gaugesGap;
+
+  @include mediaMaxWidth {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  @include mediaMaxWidth(560px) {
+    grid-template-columns: 1fr;
+  }
+}
