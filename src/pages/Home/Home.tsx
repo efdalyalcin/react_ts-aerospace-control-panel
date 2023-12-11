@@ -48,8 +48,6 @@ export default function Home() {
     refetch();
   };
 
-  console.log('Home comp', storeData.isActionRequired);
-
   return (
     <>
       <NavBar />
