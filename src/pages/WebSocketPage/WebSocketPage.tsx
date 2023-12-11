@@ -43,7 +43,7 @@ export default function WebSocketPage() {
     return () => {
       websocket.close();
     };
-  }, []);
+  }, [setSpectrumStatusStore]);
 
   return (
     <div className="WebSocketPage">
